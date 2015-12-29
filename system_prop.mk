@@ -4,7 +4,7 @@
 
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
-    audio.offload.buffer.size.kb=1024 \
+    audio.offload.buffer.size.kb=512 \
     audio.offload.gapless.enabled=true \
     audio.offload.multiple.enabled=true \
     audio.offload.pcm.16bit.enable=false \
@@ -31,15 +31,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
    ro.bt.bdaddr_path=/sys/module/htc_bdaddress/parameters/bdaddress
 
-# Camera
-PRODUCT_PROPERTY_OVERRIDES += \
-    camera2.portability.force_api=1
-
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.hwc.mdpcomp.enable=true \
-    ro.opengles.version=196608 \
-    ro.qualcomm.cabl=0 \
+    ro.opengles.version=196609 \
+    ro.qualcomm.cabl=1 \
     ro.sf.lcd_density=480
 
 # Factory Reset Protection
@@ -54,9 +50,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.izat.premium_enabled=0 \
     ro.qc.sdk.izat.service_mask=0x0
 
+# Camera configuration
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    camera.disable_zsl_mode=0
+
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    persist.camera.ois.disable=0
+
 # IO Scheduler
 PRODUCT_PROPERTY_OVERRIDES += \
-    sys.io.scheduler=bfq
+    sys.io.scheduler=fiops
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -95,10 +98,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.call_ring.multiple=false
-
-# USB
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp
 
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \

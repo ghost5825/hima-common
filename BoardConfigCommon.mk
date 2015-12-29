@@ -17,7 +17,7 @@ BOARD_VENDOR := htc
 
 COMMON_PATH := device/htc/hima-common
 
-TARGET_SPECIFIC_HEADER_PATH := $(COMMON_PATH)/include
+TARGET_SPECIFIC_HEADER_PATH += $(COMMON_PATH)/include
 
 # Assertions
 TARGET_BOARD_INFO_FILE ?= $(COMMON_PATH)/board-info.txt
@@ -40,6 +40,8 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno430
 
 TARGET_USES_64_BIT_BINDER := true
 
+TARGET_CPU_CORTEX_A53 := true
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8994
 TARGET_NO_BOOTLOADER := true
@@ -47,7 +49,7 @@ TARGET_NO_BOOTLOADER := true
 # Kernel
 BOARD_DTBTOOL_ARGS := -2
 BOARD_KERNEL_BASE := 0x00078000
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-7 androidusb.pid=0x065d androidkey.dummy=1 androidtouch.htc_event=1 disk_mode_enable=1
+BOARD_KERNEL_CMDLINE := console=none androidboot.hardware=qcom ehci-hcd.park=3 androidkey.dummy=1 androidtouch.htc_event=1 disk_mode_enable=1 sched_enable_hmp=1 sched_enable_power_aware=1
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01f88000 --tags_offset 0x01d88000
@@ -72,24 +74,25 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(COMMON_PATH)/bluetooth
 BOARD_BLUEDROID_VENDOR_CONF := $(COMMON_PATH)/bluetooth/libbt_vndcfg.txt
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
+BOARD_HAVE_BCM_4356 := true
 
 # Camera
 TARGET_SPECIFIC_CAMERA_PARAMETER_LIBRARY := libcamera_parameters_ext
 USE_DEVICE_SPECIFIC_CAMERA := true
-COMMON_GLOBAL_CFLAGS += -DPROPERTY_PERMS_APPEND='{"htc.camera.sensor.", AID_CAMERA, 0}, {"camera.4k2k.", AID_MEDIA, 0},'
+
+COMMON_GLOBAL_CFLAGS += \
+    -DPROPERTY_PERMS_APPEND='{"htc.camera.sensor.", AID_CAMERA, 0}, {"camera.4k2k.", AID_MEDIA, 0},' 
 
 # Charger
 COMMON_GLOBAL_CFLAGS += \
     -DBOARD_CHARGING_CMDLINE_NAME='"androidboot.mode"' \
     -DBOARD_CHARGING_CMDLINE_VALUE='"chargerlogo"'
 
-# CM Hardware
-BOARD_HARDWARE_CLASS := $(COMMON_PATH)/cmhw
-
 # Display
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_ION := true
+TARGET_USES_NEW_ION_API := true
 TARGET_USES_OVERLAY := true
 USE_OPENGL_RENDERER := true
 
