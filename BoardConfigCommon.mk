@@ -160,3 +160,6 @@ WIFI_DRIVER_FW_PATH_STA     := "/system/etc/firmware/fw_bcm4356.bin"
 
 # Allow building with java8
 EXPERIMENTAL_USE_JAVA8 := true
+
+# Allow building on newer OS
+USE_HOST_LEX := yes
