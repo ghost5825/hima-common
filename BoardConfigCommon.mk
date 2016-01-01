@@ -49,7 +49,7 @@ TARGET_NO_BOOTLOADER := true
 # Kernel
 BOARD_DTBTOOL_ARGS := -2
 BOARD_KERNEL_BASE := 0x00078000
-BOARD_KERNEL_CMDLINE := console=none androidboot.hardware=qcom ehci-hcd.park=3 disk_mode_enable=1
+BOARD_KERNEL_CMDLINE := console=none androidboot.hardware=qcom disk_mode_enable=1
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01f88000 --tags_offset 0x01d88000
@@ -92,7 +92,6 @@ COMMON_GLOBAL_CFLAGS += \
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_ION := true
-TARGET_USES_NEW_ION_API := true
 TARGET_USES_OVERLAY := true
 USE_OPENGL_RENDERER := true
 
@@ -159,7 +158,7 @@ WIFI_DRIVER_FW_PATH_STA     := "/system/etc/firmware/fw_bcm4356.bin"
 -include vendor/htc/hima-common/BoardConfigVendor.mk
 
 # Allow building with java8
-EXPERIMENTAL_USE_JAVA8 := true
+# EXPERIMENTAL_USE_JAVA8 := true
 
 # Allow building on newer OS
 USE_HOST_LEX := yes
