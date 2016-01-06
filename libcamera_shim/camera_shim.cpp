@@ -20,3 +20,13 @@ extern "C" int _ZN7android5Fence4waitEi(int);
 extern "C" int _ZN7android5Fence4waitEj(unsigned int timeout) {
     return _ZN7android5Fence4waitEi(timeout);
 }
+
+extern "C" int _ZN7qcamera17QCameraParameters22setFaceDetectionOptionEb(bool, bool) {
+    return 1;
+}
+
+
+extern "C" int _ZN7qcamera25QCamera2HardwareInterface16setFaceDetectionEb(bool, bool) {
+    return 1;
+}
+
