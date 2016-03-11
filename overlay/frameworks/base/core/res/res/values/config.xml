@@ -125,8 +125,8 @@
     <bool name="config_intrusiveNotificationLed">true</bool>
 
     <!-- Does the notification LED support multiple colors?
-         Used to decide if the user can change the colors 
-    <bool name="config_multiColorNotificationLed">true</bool> -->
+         Used to decide if the user can change the colors
+    <bool name="config_multiColorNotificationLed">true</bool>  -->
 
     <!-- Default color for notification LED is green. -->
     <color name="config_defaultNotificationColor">#ff00ff00</color>
@@ -348,10 +348,10 @@
     <bool name="config_enableAutoPowerModes">true</bool>
     
     <!-- Default value for proximity check on screen wake
-     NOTE ! - Enable for devices that have a fast response proximity sensor (ideally < 300ms)
+     NOTE ! - Enable for devices that have a fast response proximity sensor (ideally < 300ms) -->
     <bool name="config_proximityCheckOnWake">true</bool>
     <integer name="config_proximityCheckTimeout">100</integer>
-    <bool name="config_proximityCheckOnWakeEnabledByDefault">true</bool> -->
+    <bool name="config_proximityCheckOnWakeEnabledByDefault">true</bool> 
     
     <!-- Ambient Display : Dream of Notifications -->
     <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
