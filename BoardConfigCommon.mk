@@ -165,4 +165,4 @@ WIFI_DRIVER_FW_PATH_STA     := "/system/etc/firmware/fw_bcm4356.bin"
 -include vendor/htc/hima-common/BoardConfigVendor.mk
 
 # Allow building with java8
-EXPERIMENTAL_USE_JAVA8 := true
+# EXPERIMENTAL_USE_JAVA8 := true
