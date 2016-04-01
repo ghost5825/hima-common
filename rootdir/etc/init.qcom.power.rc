@@ -48,9 +48,6 @@ on enable-low-power
 
     # enable LPM
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
-<<<<<<< HEAD
-
-=======
     # Restore CPU 4 max freq from msm_performance
     write /sys/module/msm_performance/parameters/cpu_max_freq "4:4294967295 5:4294967295 6:4294967295 7:4294967295"
     # input boost configuration
@@ -59,12 +56,11 @@ on enable-low-power
     # configure core_ctl module parameters
     write /sys/devices/system/cpu/cpu4/core_ctl/max_cpus 4
     write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 0
-    write /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres 72
-    write /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres 28
+    write /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres 60
+    write /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres 30
     write /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms  100
     write /sys/devices/system/cpu/cpu4/core_ctl/is_big_cluster 1
     write /sys/devices/system/cpu/cpu4/core_ctl/task_thres 4
->>>>>>> 8855ad9... hima: Always keep 4 small cores online
     # Setting b.L scheduler parameters
     write /proc/sys/kernel/sched_migration_fixup 1
     write /proc/sys/kernel/sched_small_task 30
